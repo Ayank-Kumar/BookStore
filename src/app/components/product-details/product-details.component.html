@@ -1,0 +1,19 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <div class="text-center">
+            <img src="{{product.imageUrl}}" class="detail-img">
+        </div>
+
+        <h3>{{product.name}}</h3>
+        <a (click)="addProductToCart(product)" class="primary-btn" style="float: right;margin: 20px;">Add to Cart</a>
+        <div class="price">
+            {{ product.unitPrice | currency : 'INR' }} 
+        </div> 
+
+        <hr>
+        <h4>Description</h4>
+        <p>{{ product.description}}</p>
+
+    </div>
+</div>

@@ -1,0 +1,43 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.active {
+    font-weight: bold;
+    color: blue;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #007bff;
+}

@@ -1,0 +1,39 @@
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+  <img src="assets/images/logo.png" alt="Store Logo" >
+  <app-category-menu></app-category-menu>
+</aside>
+<!-- END MENU SIDEBAR-->
+
+<!-- PAGE CONTAINER-->
+<div class="page-container d-flex flex-column min-vh-100">
+
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop">
+        <div class="section-content section-content-p30">
+            <div class="container-fluid">
+                <div class="header-wrap">
+                    <app-search-menu></app-search-menu>
+                    <app-login-status></app-login-status>
+                    <app-cart-status></app-cart-status>
+                </div>
+                <div class="account-wrap"></div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER DESKTOP-->
+
+    <!-- MAIN CONTENT-->
+    <div class="flex-grow-1">
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto">
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </footer>
+</div>

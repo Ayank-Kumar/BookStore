@@ -1,0 +1,26 @@
+<div class="toast-header">
+    <strong class="me-auto"> {{ title }}</strong>
+    <!-- <button *ngIf="options.closeButton" 
+            (click)="remove()" 
+            class="toast-close-button">
+      ×
+    </button> -->
+  </div>
+  <div class="toast-body">
+    <div [innerHTML]="message"></div>
+    <div class="toast-actions">
+      <button class="btn btn-tertiary" 
+              (click)="navigateToPreview()">
+        Preview
+      </button>
+      <button class="btn btn-primary" 
+              (click)="executeAction()">
+        Add to cart
+      </button>
+      <button class="btn btn-secondary" 
+              (click)="remove()">
+        Close
+      </button>
+    </div>
+  </div>
+  

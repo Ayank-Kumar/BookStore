@@ -1,0 +1,23 @@
+<div class="menu-sidebar-content js-scrollbar1">
+    <nav class="navbar-sidebar">
+        <ul class="list-unstyled navbar-list">
+            
+            <li>
+                <a routerLink="products" routerLinkActive="active" >
+                    All products
+                </a>
+            </li>
+            
+            <li *ngFor="let category of categories">
+               <a routerLink="/category/{{ category.id}}" routerLinkActive="active" >
+                    {{ category.categoryName }}
+                </a> 
+            </li>
+            
+        </ul>
+        <div *ngIf="isAuthenticated && userFullName" class="login-status-user-info">
+        <i class="fa fa-user profile-icon"></i>
+        {{ userFullName }}
+        </div>
+    </nav>
+</div>   

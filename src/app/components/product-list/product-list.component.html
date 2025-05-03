@@ -1,0 +1,45 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+      <div class="container-fluid">
+        <div class="product-grid">
+            <div class="flip-card" *ngFor="let product of products">
+              <div class="flip-card-inner">
+                <!-- Front Side -->
+                <div class="flip-card-front">
+                  <img src="{{ product.imageUrl }}" alt="{{ product.name }}">
+                  <h5>{{ product.name }}</h5>
+                </div>
+                <!-- Back Side -->
+                <div class="flip-card-back">
+                  <p routerLink="/products/{{ product.id }}">{{product.description}}</p>  
+                  <p>{{ product.unitPrice | currency:'INR' }}</p>
+                  <a (click)="addProductToCart(product)" class="primary-btn">Add to Cart</a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="footer-pagination">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="pagination-container">
+              <ngb-pagination
+                [(page)]="currentPage"
+                [pageSize]="pageSize"
+                [collectionSize]="totalItems"
+                [maxSize]="5"
+                [boundaryLinks]="true"
+                (pageChange)="heavyLifter()">
+              </ngb-pagination>
+              <div class="page-size-selector">
+                <label for="pageSize">Select Page Size:</label>
+                <select id="pageSize" [(ngModel)]="pageSize" (ngModelChange)="heavyLifter()">
+                  <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

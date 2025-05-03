@@ -1,0 +1,38 @@
+/* parent.component.css */
+
+.address-selection-wrapper {
+    height: 500px;
+    width: 100%;
+  }
+
+  .app-map {
+    display: block;
+    width: 100%;
+}
+
+.table-container {
+  max-height: 411px; /* Adjust to the total height of 3 rows and the header */
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.table-container thead tr {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.table-container th,
+.table-container td {
+  width: 33.33%; /* Adjust as per your column widths */
+  box-sizing: border-box;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+

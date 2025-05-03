@@ -1,0 +1,88 @@
+.error-message {
+  color: red; /* Makes the error stand out */
+  font-weight: bold; /* Emphasizes the message */
+  margin-top: 5px; /* Adds some spacing for better readability */
+  font-size: 0.9rem; /* Adjusts the size for subtle emphasis */
+  background-color: #ffe6e6; /* Adds a light red background for better visibility */
+  padding: 5px; /* Adds padding to make it look like a label or block */
+  border-radius: 20px; /* Slightly rounds the corners */
+  border: 1px solid red; /* Adds a border for clarity */
+}
+
+.checkout-container {
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.progress-bar .step {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+}
+
+.progress-bar .step.active {
+  border-color: #007bff;
+  font-weight: bold;
+}
+
+.step-content {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+

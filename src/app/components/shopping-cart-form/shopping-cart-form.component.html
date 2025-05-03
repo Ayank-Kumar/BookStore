@@ -1,0 +1,58 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="checkout-container">
+                <!-- Progress Indicator -->
+                <!-- <div class="progress-bar;">
+                  <div class="step" [class.active]="currentStep >= 0">1. Order Review</div>
+                  <div class="step" [class.active]="currentStep >= 1">2. Customer Info</div>
+                </div> -->
+              
+                <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                  <!-- Step 1: Order Review -->
+                  <div class="step-content order-review">
+                    <h2>Review Your Order</h2>
+                    <p>Order Items Quantity : {{ totalQuantity }}</p>
+                    <p>Order Items Cost : {{ totalPrice }}</p>
+                    <p>Closest Warehouse for Shipment : {{ mapsData.closestWareHouse }}</p>
+                    <p>Shipping Charges : {{ mapsData.amount }}</p>
+                    <p>Expected Delivery Time : {{ mapsData.duration }}</p>
+                    <p>Total Price Payable : {{ (totalPrice + mapsData.amount) | currency:'INR' }}</p>
+                  </div>
+              
+                  <!-- Step 2: Customer Information -->
+                  <div class="step-content customer-info">
+                    <h2>Customer Information</h2>
+                    <div class="customer-info-form" formGroupName="customer">
+                      <div class="form-group">
+                        <label for="firstName">  First Name <span style="color: red;">*</span></label>
+                        <input id="firstName" formControlName="firstName" type="text" class="form-control">
+                        <div *ngIf="firstName?.invalid && (firstName?.touched || firstName?.dirty)" class="error-message">
+                          <span *ngIf="firstName?.errors?.['required']">First name is required.</span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="lastName">  Last Name</label>
+                        <input id="lastName" formControlName="lastName" type="text" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="email">  Email <span style="color: red;">*</span></label>
+                        <input id="email" formControlName="email" type="email" class="form-control">
+                        <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="error-message">
+                          <span *ngIf="email?.errors?.['required']">Email is required.</span>
+                          <span *ngIf="email?.errors?.['pattern']">Please provide a valid email.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="buttons">
+                      <button type="button" class="btn btn-secondary" (click)="clearForm()">Clear</button>
+                      <button type="submit" class="btn btn-success">Purchase</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </div>
+    </div>
+</div>
+
+  

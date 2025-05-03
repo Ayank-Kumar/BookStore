@@ -1,0 +1,36 @@
+<ngx-spinner bdColor = "rgba(8,2,1,0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "false"><p style="color: white" > Loading... </p></ngx-spinner>
+
+<div class="main-content">
+    <div class="section-content section-content-p30">
+      <div class="container-fluid">
+        <h3 class="mb-4">Your Orders</h3>
+        
+        <div *ngIf="ordersList.length > 0; else noOrders">
+          <div class="row">
+            <div class="col-md-4" *ngFor="let order of ordersList">
+              <div class="card mb-3">
+                <div class="card-header">
+                  Order No. {{ order.id }}
+                </div>
+                <div class="card-body">
+                  <p>
+                    <strong>Total Price:</strong> {{ order.totalPrice | currency:'INR' }}<br>
+                    <strong>Total Quantity:</strong> {{ order.totalQuantity }}<br>
+                    <strong>Date:</strong> {{ order.dateCreated | date:'medium' }}
+                  </p>
+                  <!-- <a href="#" class="btn btn-primary btn-sm">View Details</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <ng-template #noOrders>
+          <div class="alert alert-warning">
+            No orders found.
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+    

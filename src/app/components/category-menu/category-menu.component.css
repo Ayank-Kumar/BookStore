@@ -1,0 +1,19 @@
+.active {
+    font-weight: bold;
+    color: blue;
+} 
+.navbar-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 90vh; /* Adjust as necessary to fill the desired space */
+  }
+  
+  .navbar-list {
+    /* no changes needed; remains at the top */
+  }
+  
+  .login-status-user-info {
+    margin-top: auto;  /* pushes this element to the bottom */  /* optional: add padding for aesthetics */
+  }
+  
+  

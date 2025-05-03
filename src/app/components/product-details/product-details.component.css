@@ -1,0 +1,12 @@
+.active {
+    font-weight: bold;
+    color: blue;
+} 
+.primary-btn {
+    background: #27ae60;
+    padding: 10px 15px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }

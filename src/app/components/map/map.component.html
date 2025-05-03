@@ -1,0 +1,52 @@
+<ngx-spinner bdColor = "rgba(8,2,1,0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "false"><p style="color: white" > Loading... </p></ngx-spinner>
+<div class="container">
+  <div class="panel">
+    <!-- <div>
+      <img
+        class="sb-title-icon"
+        src="https://fonts.gstatic.com/s/i/googlematerialicons/place/v5/24px.svg"
+        alt=""
+      /> 
+      
+    </div> -->
+    <div class="input-container">
+      <input type="text" placeholder="Search Your Location" id="location-input" #locationInput />
+    </div>
+    <button class="current-location-button" (click)="getCurrentLocation()">
+      <i class="fas fa-location-arrow"> Use Current Location</i>
+    </button>
+    <input type="text" placeholder="Place Name" id="name-input" />
+    <input type="text" placeholder="Formatted Address" id="formatted_address-input"/>
+    <input type="text" placeholder="City" id="locality-input" />
+    <div class="half-input-container">
+      <input
+        type="text"
+        class="half-input"
+        placeholder="State/Province"
+        id="administrative_area_level_1-input"
+      />
+      <input
+        type="text"
+        class="half-input"
+        placeholder="Zip/Postal code"
+        id="postal_code-input"
+      />
+    </div>
+    <input type="text" placeholder="Country" id="country-input" />
+    <!-- <button (click)="toggle()" [ngClass]="{ 'btn-on': fast, 'btn-off': !fast }" class="btn">
+      Fast 
+    </button> -->
+    <!-- toggle-button.component.html -->
+    <div style="text-align: center;">
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="fast">
+        <span class="slider round"></span>
+      </label>
+      <span> {{ fast ? 'Faster' : 'Slower' }} Delivery </span>
+    </div>
+
+    <button *ngIf="!confirmed && formattedAddress" class="confirm-button" (click)="confirmAddress()">Confirm</button>
+    <button *ngIf="confirmed" class="proceed-button" (click)="proceedToPayment()" >Proceed to Payment</button>
+  </div>
+  <div id="map" #map></div>
+</div>
