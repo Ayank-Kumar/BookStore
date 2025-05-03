@@ -7,7 +7,7 @@ frontend:
         - sed -i "s|\\\${API_URL}|$API_URL|g" src/environments/environment.prod.ts
     build:
       commands:
-        - npm run build -- --prod
+        - npm run build -- --configuration production
   artifacts:
     baseDirectory: dist/ecommerce-frontend
     files:
