@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        - sed -i "s|\\\${API_URL}|$API_URL|g" src/environments/environment.prod.ts
+    build:
+      commands:
+        - npm run build -- --prod
+  artifacts:
+    baseDirectory: dist/ecommerce-frontend
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
