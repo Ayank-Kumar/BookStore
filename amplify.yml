@@ -9,7 +9,7 @@ frontend:
       commands:
         - npm run build -- --configuration production
   artifacts:
-    baseDirectory: dist/ecommerce-frontend
+    baseDirectory: dist/ecommerce-frontend/browser
     files:
       - '**/*'
   cache:
