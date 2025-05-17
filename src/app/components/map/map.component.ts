@@ -278,7 +278,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.spinner.hide();
 
     //console.log(this.aqi+" - ") ;
-    if(this.aqi >= 30){
+    if(this.aqi >= 0){
       //console.log("high AQI") ;
       this.showToast() ;
       //alert('Please enter the address properly') ;
