@@ -62,7 +62,7 @@ export class CategoryMenuComponent implements OnInit {
         //console.log(this.categories);  // Log after the products have been assigned
       },
       (error: any) => {
-        console.error('Error fetching products:', error);  // Handle potential errors
+        //console.error('Error fetching products:', error);  // Handle potential errors
       }
     );
 

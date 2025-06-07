@@ -10,6 +10,7 @@ import { MapsResponse, MapsService } from '../../services/maps.service';
 import { Router } from '@angular/router';
 import { OktaAuthStateService , OKTA_AUTH } from '@okta/okta-angular';
 import * as OktaAuth from '@okta/okta-auth-js'
+import { NgxSpinnerService } from 'ngx-spinner';
 type OktaAuth = typeof OktaAuth
 
 declare var Razorpay: any;
@@ -37,6 +38,7 @@ export class ShoppingCartFormComponent implements OnInit{
     private purchaseService : PurchaseService,
     private mapsService : MapsService,
     private router: Router,
+    private ngxSpinnerService: NgxSpinnerService,
     private oktaAuthService: OktaAuthStateService,
         @Inject(OKTA_AUTH) private oktaAuth: OktaAuth
   ){}
@@ -45,7 +47,7 @@ export class ShoppingCartFormComponent implements OnInit{
   //   const controls = this.formGroup.controls;
   //   for (const name in controls) {
   //       if (controls[name].invalid) {
-  //           //console.log(name);
+  //           console.log(name);
   //       }
   //   }
   // }
@@ -114,6 +116,12 @@ export class ShoppingCartFormComponent implements OnInit{
       //this.findInvalidControls() ;
       return ;
     }
+    
+    this.ngxSpinnerService.show() ;
+    // Set a fallback timeout to hide the spinner after a fixed duration
+    setTimeout(() => {
+      this.ngxSpinnerService.hide(); // Hide spinner if rendering takes too long
+    }, 1000);
 
     // default constructor is not provided by angular.
     let purchaseData : Purchase ;
@@ -135,7 +143,7 @@ export class ShoppingCartFormComponent implements OnInit{
         this.pushPaymentToRazorPay(next)
           .then((paymentResponse) => {
             // Payment successful flow
-            console.log('Payment successful:', paymentResponse);
+            //console.log('Payment successful:', paymentResponse);
             this.mapsData.amount = parseFloat((0.000000001).toFixed(2));
             this.formGroup.reset();
             this.cartService.reset();
@@ -145,9 +153,10 @@ export class ShoppingCartFormComponent implements OnInit{
           })
           .catch((error) => {
             // Payment failed or cancelled flow
-            console.error('Payment failed or cancelled:', error);
+            // console.error('Payment failed or cancelled:', error);
+            alert(`Payment failed due to the following reason : ${error.message}`) ;
             // Handle payment failure
-            //this.showFailureMessage(error.message);
+            // this.showFailureMessage(error.message);
           });
       },
       error => {

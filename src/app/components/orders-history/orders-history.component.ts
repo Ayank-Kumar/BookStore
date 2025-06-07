@@ -32,12 +32,12 @@ export class OrdersHistoryComponent implements OnInit{
     try {
       // Await the Promise returned by getOrders directly.
       const response = await this.orderService.getOrders(email);
-      console.log('Orders:', response);
+      //console.log('Orders:', response);
       this.ordersList = response._embedded.orders;
       // For Backup
       this.cd.markForCheck();
     } catch (error) {
-      console.error('Error retrieving orders:', error);
+      //console.error('Error retrieving orders:', error);
     }
 
   }

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit{
 
   constructor(
     @Inject(OKTA_AUTH) private oktaAuth: OktaAuth,
-    private spinner: NgxSpinnerService,
+    public ngxSpinnerService: NgxSpinnerService,
     private purchaseService: PurchaseService,
     private router: Router
   ) {
@@ -46,10 +46,11 @@ export class LoginComponent implements OnInit{
   private async handleGuestLogin() {
     try {
       // Secure credential retrieval via encrypted environment variables
-      
+      this.ngxSpinnerService.show();
+
       const guestCreds = await lastValueFrom( this.purchaseService.getCredentials() ) ;
-      console.log(guestCreds);
-      console.log(guestCreds.username + ' ' + guestCreds.password);
+      //console.log(guestCreds);
+      //console.log(guestCreds.username + ' ' + guestCreds.password);
       
       const transaction = await this.oktaSignin.authClient.signInWithCredentials({
         username: guestCreds.username,
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit{
       });
   
       if (transaction.status === 'SUCCESS') {
-        console.log('Guest login successful:', transaction);
+        //console.log('Guest login successful:', transaction);
 
         // 1. Exchange sessionToken for tokens
         const tokens = await this.oktaSignin.authClient.token.getWithoutPrompt({
@@ -72,7 +73,7 @@ export class LoginComponent implements OnInit{
 
         this.oktaSignin.remove();
       }else{
-        console.log('Guest login failed:', transaction);
+        //console.log('Guest login failed:', transaction);
       }
       //   const tokens = await this.oktaSignin.authClient.token.getWithoutPrompt({
       //     sessionToken: transaction.sessionToken,
@@ -82,17 +83,19 @@ export class LoginComponent implements OnInit{
       //   this.handleGuestSession(tokens);
       // }
     } catch (error) {
-      console.error('Guest login failed:', error);
+      //console.error('Guest login failed:', error);
+    } finally {
+      this.ngxSpinnerService.hide();
     }
   }
 
   ngOnInit(): void {
     
-    this.spinner.show();
+    this.ngxSpinnerService.show();
     
     // Set a fallback timeout to hide the spinner after a fixed duration
     setTimeout(() => {
-      this.spinner.hide(); // Hide spinner if rendering takes too long
+      this.ngxSpinnerService.hide(); // Hide spinner if rendering takes too long
     }, 3000);
     
     //this.oktaSignin.remove();
@@ -100,7 +103,7 @@ export class LoginComponent implements OnInit{
     this.oktaSignin.renderEl({
       el: '#okta-sign-in-widget'}, // this name should be same as div tag id in login.component.html
       (response: any) => {
-        console.log(response) ;
+        //console.log(response) ;
         if (response.status === 'SUCCESS') {
           //console.log('Successfully signed-in');
           this.oktaAuth.signInWithRedirect();
@@ -108,7 +111,7 @@ export class LoginComponent implements OnInit{
         //this.spinner.hide();
       },
       (error: any) => {
-        console.error('Error during authentication:', error);
+        //console.error('Error during authentication:', error);
         //this.spinner.hide();
         throw error;
       }

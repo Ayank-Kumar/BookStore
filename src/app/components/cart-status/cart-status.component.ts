@@ -43,7 +43,7 @@ export class CartStatusComponent {
     if(this.isAuthenticated){
       this.router.navigate(['/cart-details']);
     }else{
-      alert("Please login to view cart details");
+      alert("🔒 Please login to view your cart details.");
     }
     
   }

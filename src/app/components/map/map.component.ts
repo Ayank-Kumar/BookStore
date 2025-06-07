@@ -138,7 +138,7 @@ export class MapComponent implements OnInit, AfterViewInit {
           // Optionally, reverse geocode to get the address and fill inputs
         },
         (error) => {
-          console.error('Error getting location', error);
+          //console.error('Error getting location', error);
           this.spinner.hide();
         }
       );

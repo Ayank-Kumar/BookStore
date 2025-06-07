@@ -40,7 +40,6 @@ export class ProductListComponent implements OnInit{
   }
 
   heavyLifter(){
-    
     const passedCategoryId : boolean = this.routes.snapshot.paramMap.has('id') ;
     const passedName : boolean = this.routes.snapshot.paramMap.has('name') ;
 
@@ -75,10 +74,11 @@ export class ProductListComponent implements OnInit{
           //console.log(this.products); Log after the products have been assigned
         },
         (error) => {
-          console.error('Error fetching products:', error);  // Handle potential errors
+          //console.error('Error fetching products:', error);  // Handle potential errors
         } 
       );
     }
+
   }
 
   addProductToCart(product : Product ){
@@ -98,7 +98,7 @@ export class ProductListComponent implements OnInit{
         //(this.products);  // Log after the products have been assigned
       },
       (error) => {
-        console.error('Error fetching products:', error);  // Handle potential errors
+        //console.error('Error fetching products:', error);  // Handle potential errors
       }
     )  
   }
@@ -115,7 +115,7 @@ export class ProductListComponent implements OnInit{
         //console.log(this.products);  // Log after the products have been assigned
       },
       (error) => {
-        console.error('Error fetching products:', error);  // Handle potential errors
+        //console.error('Error fetching products:', error);  // Handle potential errors
       }
     );
   }
