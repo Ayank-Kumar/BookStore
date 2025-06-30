@@ -5,6 +5,7 @@ import { Product } from '../../classes/product';
 import { CartRecordsService } from '../../services/cart-records.service';
 import { ProductService, GetResponse } from '../../services/product-service.service';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap'; // Ensure this import
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-product-list',
@@ -27,7 +28,8 @@ export class ProductListComponent implements OnInit{
   constructor(
     private productService : ProductService,
     private cartService : CartRecordsService,
-    private routes: ActivatedRoute // when someone reaches us via a route
+    private routes: ActivatedRoute, // when someone reaches us via a route
+    private ngxSpinnerService: NgxSpinnerService // Assuming ngxSpinnerService is injected for loading spinner
   ){}
 
   ngOnInit(): void {
@@ -42,6 +44,8 @@ export class ProductListComponent implements OnInit{
   heavyLifter(){
     const passedCategoryId : boolean = this.routes.snapshot.paramMap.has('id') ;
     const passedName : boolean = this.routes.snapshot.paramMap.has('name') ;
+
+    this.ngxSpinnerService.show() ;
 
     if(passedCategoryId){
       this.categoryNumber = +this.routes.snapshot.paramMap.get('id')! ;
@@ -79,6 +83,8 @@ export class ProductListComponent implements OnInit{
       );
     }
 
+    this.ngxSpinnerService.hide() ;
+    
   }
 
   addProductToCart(product : Product ){
