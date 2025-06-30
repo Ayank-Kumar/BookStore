@@ -34,18 +34,19 @@ export class ProductListComponent implements OnInit{
 
   ngOnInit(): void {
     //console.log('ngOnInit called'); // not getting called
+    this.ngxSpinnerService.show() ;
+
     this.routes.paramMap.subscribe(
       () => {
         this.heavyLifter() ;
       },
     );
+    
   }
 
   heavyLifter(){
     const passedCategoryId : boolean = this.routes.snapshot.paramMap.has('id') ;
     const passedName : boolean = this.routes.snapshot.paramMap.has('name') ;
-
-    this.ngxSpinnerService.show() ;
 
     if(passedCategoryId){
       this.categoryNumber = +this.routes.snapshot.paramMap.get('id')! ;
@@ -82,9 +83,8 @@ export class ProductListComponent implements OnInit{
         } 
       );
     }
-
-    this.ngxSpinnerService.hide() ;
     
+    this.ngxSpinnerService.hide() ;
   }
 
   addProductToCart(product : Product ){
