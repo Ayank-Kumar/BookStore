@@ -33,14 +33,14 @@ export class ProductListComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    //console.log('ngOnInit called'); // not getting called
+    
     this.ngxSpinnerService.show() ;
 
-    this.routes.paramMap.subscribe(
-      () => {
-        this.heavyLifter() ;
-      },
-    );
+    this.routes.paramMap.subscribe(() => {
+      setTimeout(() => {
+        this.heavyLifter();
+      }, 2000);
+    });
     
   }
 
