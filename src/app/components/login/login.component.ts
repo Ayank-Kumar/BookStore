@@ -35,11 +35,13 @@ export class LoginComponent implements OnInit{
         issuer: myAppConfig.oidc.issuer,
         scopes: myAppConfig.oidc.scopes
       },
-      customButtons: [{
+      customButtons: [
+        {
         title: 'Continue as Guest',
         className: 'btn-guest',
         click: () => this.handleGuestLogin()
-      }]
+        }
+      ]
     });
   }
 
@@ -63,7 +65,11 @@ export class LoginComponent implements OnInit{
         // 1. Exchange sessionToken for tokens
         const tokens = await this.oktaSignin.authClient.token.getWithoutPrompt({
           sessionToken: transaction.sessionToken,
-          scopes: ['openid', 'profile', 'email']
+          scopes: ['openid', 'profile', 'email'],
+          authorizeParams: {
+            prompt: 'none',
+            login_hint: guestCreds.username
+          }
         });
 
         // 2. Store tokens in authClient's token manager
