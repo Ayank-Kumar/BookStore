@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit{
       },
       customButtons: [
         {
-        title: 'Continue as Guest',
+        title: 'Guest Login',
         className: 'btn-guest',
         click: () => this.handleGuestLogin()
         }

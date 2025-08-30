@@ -1,3 +1,32 @@
 #help-links-container {
 display: block !important;
 }
+
+.test-creds-banner-fixed {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 9999;
+
+  font: 600 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #1b5e20;                 /* dark green text */
+  background: #e8f5e9;            /* light green bg */
+  border-left: 4px solid #1b5e20; /* accent bar */
+  padding: 10px 12px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+
+  max-width: min(90vw, 420px);
+  word-break: break-word;
+  pointer-events: auto;           /* clickable if needed */
+}
+
+/* Optional: compact on very small screens */
+@media (max-width: 480px) {
+  .test-creds-banner-fixed {
+    right: 12px;
+    bottom: 12px;
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}
