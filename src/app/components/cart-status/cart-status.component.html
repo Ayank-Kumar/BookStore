@@ -1,8 +1,12 @@
 <div class="cart-area d-n" *ngIf="totalQuantity>0">
-    <a (click)="redirect()" >
-        <div class="total">{{  totalPrice | currency : 'INR' }}
-            <span>{{totalQuantity}}</span>
+    <a (click)="redirect()" title="Go to Cart">
+        <div class="total">
+            {{ totalPrice | currency : 'INR' }}
+            <span>{{ totalQuantity }}</span>
         </div>
+        
         <i class="fa fa-shopping-cart"></i>
+        <i class="fa fa-arrow-right" ></i>
+        <!-- <span class="go-to-cart-text">View Cart</span> -->
     </a>
 </div>
