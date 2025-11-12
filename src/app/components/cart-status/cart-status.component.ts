@@ -40,11 +40,12 @@ export class CartStatusComponent {
   }
 
   redirect(){
-    if(this.isAuthenticated){
-      this.router.navigate(['/cart-details']);
-    }else{
-      alert("🔒 Please login to view your cart details.");
-    }
+    this.router.navigate(['/cart-details']);
+    // if(this.isAuthenticated){
+      
+    // }else{
+    //   alert("🔒 Please login to view your cart details.");
+    // }
     
   }
 
